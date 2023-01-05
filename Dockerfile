@@ -1,6 +1,7 @@
-FROM ubuntu:22.04 AS builder
-WORKDIR /_work
+FROM ubuntu:20.04 AS builder
 ARG VERSION=""
+
+WORKDIR /workspace
 
 RUN apt-get update -y && apt-get upgrade -y \
   && apt-get install -y git autoconf make libtool
@@ -14,5 +15,5 @@ RUN git clone https://github.com/kohler/gifsicle.git \
   && autoreconf -i && ./configure && make
 
 FROM gcr.io/distroless/base
-COPY --from=builder /_work/gifsicle/src/gifsicle /usr/local/bin/gifsicle
+COPY --from=builder /workspace/gifsicle/src/gifsicle /usr/local/bin/gifsicle
 ENTRYPOINT [ "gifsicle" ]

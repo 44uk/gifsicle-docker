@@ -1,6 +1,8 @@
-# Dockerfile for GifSicle
+# Dockerfile for Gifsicle
 
-## Usage
+- [Gifsicle](https://github.com/kohler/gifsicle)
+
+## Build
 
 ### Build with current latest version.
 
@@ -11,5 +13,11 @@ $ docker build ./ -t gifsicle:latest
 ### Build with specific version.
 
 ```shell
-$ docker build ./ -t gifsicle:v189 --build-arg VERSION=v1.89
+$ docker build ./ -t gifsicle:v193 --build-arg VERSION=v1.93
+```
+
+## Usage
+
+```shell
+$ docker run --rm gifsicle -v
 ```
