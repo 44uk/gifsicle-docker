@@ -13,11 +13,12 @@ $ docker build ./ -t gifsicle:latest
 ### Build with specific version.
 
 ```shell
-$ docker build ./ -t gifsicle:v193 --build-arg VERSION=v1.93
+$ docker build . -t gifsicle:v195 --build-arg VERSION=v1.95
 ```
 
 ## Usage
 
 ```shell
-$ docker run --rm gifsicle -v
+$ docker run --rm gifsicle --version
+```
 ```
